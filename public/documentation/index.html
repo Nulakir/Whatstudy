@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3>Use case voor alle userstories.</h3>
+        <img src="../img/usecase.png" alt="plz">
+        <h3>Class diagram</h3>
+        <img src="../img/ClassDiagram.png" alt="classDiagram">
+        <h3>ERD</h3>
+        <img src="../img/ERP.png" alt="ERD">
+        <h2>TestScripts</h2>
+        <h3>Front-End</h3>
+        <h4>US 1</h4>
+        <p>
+            !|script|browser test |<br>
+            |open |https://ori.clow.nl/~s1128627/whatstudy/|<br>
+            |check |page title |WhatsWorst Chat |<br>
+            |show |take screenshot |x |<br>
+            |click |id=epicOpen |<br>
+            |switch to next tab |<br>
+            |enter |teststudent |as |Username |<br>
+            |enter |teststudent |as |Password |<br>
+            |click |login |<br>
+            |open |https://ori.clow.nl/~s1128627/whatstudy/|<br>
+            |show |take screenshot |x |<br>
+        </p>
+        <h4>US 2</h4>
+        <p>
+            !|storyboard |browser test |<br>
+            |open |https://ori.clow.nl/~s1128627/whatstudy/ |<br>
+            |click |id=epicOpen |<br>
+            |switch to next tab |<br>
+            |enter |teststudent|as|xpath=(//input[@placeholder= 'Username'])|<br>
+            |enter |teststudent|as|xpath=(//input[@placeholder= 'Password'])|<br>
+            |click |css=button |<br>
+            |open |https://ori.clow.nl/~s1128627/whatstudy/|<br>
+            |wait for visible|xpath=(//div[@class= 'chatGebruiker']) | <br>
+        </p>
+        <h4>US 3/4</h4>
+        <p>
+            !|storyboard |browser test |<br>
+            |open |https://ori.clow.nl/~s1128627/whatstudy/ |<br>
+            |click |id=epicOpen |<br>
+            |switch to next tab <br>
+            |enter |teststudent|as|xpath=(//input[@placeholder= 'Username'])|<br>
+            |enter |teststudent|as|xpath=(//input[@placeholder= 'Password'])|<br>
+            |click |css=button |<br>
+            |open |https://ori.clow.nl/~s1128627/whatstudy/|<br>
+            |wait for visible|xpath=(//div[@class= 'chatGebruiker']) | <br>
+            |ensure |is visible on page|Typ hier jouw bericht |<br>
+            |enter |HOI |as|xpath=(//input[@placeholder= 'Typ hier jouw bericht'])|<br>
+            |click |Send|<br>
+            |wait for visible|xpath=(//div[@class= 'chatGebruiker']) |<br>
+            |ensure |is visible |HOI |<br>
+        </p>
+        <h4>US 5</h4>
+        <p>
+            !|storyboard |browser test |<br>
+            |open |https://epic.clow.nl/login |<br>
+            |enter |teststudent|as|xpath=(//input[@placeholder= 'Username'])|<br>
+            |enter |teststudent|as|xpath=(//input[@placeholder= 'Password'])|<br>
+            |click |css=button |<br>
+            |open |https://ori.clow.nl/~s1128627/whatstudy/ |<br>
+            |click |id=Room8 |<br>
+            |wait for visible|xpath=(//div[@id='rooms']) |<br>
+            |ensure |is visible |xpath=(//div[@id='rooms]) |<br>
+        </p>
+        <h4>US 6</h4>
+        <p>
+            !|storyboard |browser test |<br>
+            |open |https://epic.clow.nl/login |<br>
+            |enter |teststudent|as|xpath=(//input[@placeholder= 'Username'])|<br>
+            |enter |teststudent|as|xpath=(//input[@placeholder= 'Password'])|<br>
+            |click |css=button |<br>
+            |open |https://ori.clow.nl/~s1128627/whatstudy/ |<br>
+            |click|id=statsButton |<br>
+            |wait for visible|xpath=(//canvas[@id= 'messageStats']) |<br>
+            |ensure |is visible |xpath=(//canvas[@id= 'messageStats']) |<br>
+            |click |Home |<br>
+            |wait for visible|xpath=(//div[@id='rooms']) |<br>
+        </p>
+        <h3>Back-End</h3>
+        <h4>US 2</h4>
+        <p>
+            !| script|json http test |<br>
+            |get
+            from|https://ori.clow.nl/~s1128627/whatstudy/api/rooms/1/messages/check/0a386f3f52bd76837fe0c754ea00d7ae1373732949435cb1|<br>
+            |show |response |<br>
+            |check |response status |200 | <br>
+        </p>
+
+        <h4>US 3/4</h4>
+        <p>
+            !define postData {"user_id":"s1128627","room_id":"1","description":"test API"}<br>
+            !| script|json http test |<br>
+            |post |{${postData}}
+            |to|https://ori.clow.nl/~s1128627/whatstudy/messages/check/0a386f3f52bd76837fe0c754ea00d7ae1373732949435cb1|<br>
+            |show |response |<br>
+            |check |response status |200 | <br>
+        </p>
+        <h4>US 5</h4>
+        <p>
+
+            !| script|json http test |<br>
+            |get from|https://ori.clow.nl/~s1128627/whatstudy/api/rooms/1/messages/check/0a386f3f52bd76837fe0c754ea00d7ae1373732949435cb1|<br>
+            |show |response |<br>
+            |check |response status |200 |<br>
+            |get from|https://ori.clow.nl/~s1128627/whatstudy/api/rooms/2/messages/check/0a386f3f52bd76837fe0c754ea00d7ae1373732949435cb1|<br>
+            |show |response |<br>
+            |check |response status |200 |<br>
+        </p>
+        <h4>US 6</h4>
+        <p>
+                !|script |json http test |<br>
+                |get from|https://ori.clow.nl/~s1128627/whatstudy/api/statistics/check/0a386f3f52bd76837fe0c754ea00d7ae1373732949435cb1|<br>
+                |check |response status |200 |<br>
+                |check |json path count |$[*] |7 |<br>
+                |show |response | <br>
+        </p>
+
+
+    </div>
+</body>
+
+</html>
